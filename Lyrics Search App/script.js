@@ -16,6 +16,23 @@ async function searchSongs(term) {
 
 // Show songs and artists in DOM
 function showData(data){
+    let output = '';
+
+    data.data.forEach(element => {
+        output +=`
+        <li>
+            <span><strong>${element.artist.name}</strong> - ${element.title}</span>
+            <button class="btn" data-artist = "${element.artist.name} data-songtitle = "${element.title}">Get Lyrics</button>
+        </li>
+        `;
+    });
+
+    result.innerHTML = `
+        <ul class = "songs">
+        ${output}
+        </ul>
+    
+    `
 
 }
 
