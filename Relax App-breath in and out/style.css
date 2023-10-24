@@ -1,0 +1,81 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background: lightslategray url('./image/waves.jpg') no-repeat center center/cover;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+.container{
+    /* border-style: solid; */
+    border-color: #fefdfd52;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    height: 300px;
+    width: 300px;
+    position: relative;
+    transform: scale(1);
+}
+
+.circle{
+    /* border-style: solid; */
+    background-color: rgb(131, 153, 161);
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.pointer {
+    background-color: #fff;
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+    display: block;
+}
+
+.pointer-container {
+    position: absolute;
+    top: -40px;
+    left: 135px;
+    width: 20px;
+    height: 190px;
+    animation: indicator 10s linear forwards infinite;
+    transform-origin: bottom center;
+}
+
+.guide {
+    background: conic-gradient(
+        #77bfe652 0%,
+        #2f5972 40%,
+        #fcfdfd 40%,
+        #f3f4f4 60%,
+        #3e84a0 60%,
+        #123a49 100%);
+    height: 320px;
+    width: 320px;
+    z-index: -2;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+}
+
+@keyframes indicator {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(360deg)
+    }
+}
