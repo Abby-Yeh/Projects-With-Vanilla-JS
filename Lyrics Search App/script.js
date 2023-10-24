@@ -11,7 +11,7 @@ async function searchSongs(term) {
   const data = await res.json();
 
   //   console.log(data)
-  showData(data);
+  showData(data); 
 }
 
 // Show songs and artists in DOM
@@ -37,10 +37,10 @@ function showData(data) {
     <ul class = "songs">
     ${data.data
       .map(
-        (element) => `
+        (song) => `
             <li>
-                <span><strong>${element.artist.name}</strong> - ${element.title}</span>
-                <button class="btn" data-artist = "${element.artist.name} data-songtitle = "${element.title}">Get Lyrics</button>
+                <span><strong>${song.artist.name}</strong> - ${song.title}</span>
+                <button class="btn" data-artist = "${song.artist.name}" data-songtitle = "${song.title}">Get Lyrics</button>
             </li>`
       )
       .join("")}
@@ -50,16 +50,16 @@ function showData(data) {
   if (data.prev || data.next) {
     // console.log(`${data.next}`);
     more.innerHTML = `
-    ${
-      data.prev
-        ? `<button class="btn" onclick="getMoreSongs('${data.prev}')">Prev</button>`
-        : ""
-    }
-    ${
-      data.next
-        ? `<button class="btn" onclick="getMoreSongs('${data.next}')">Next</button>`
-        : ""
-    }
+      ${
+        data.prev
+          ? `<button class="btn" onclick="getMoreSongs('${data.prev}')">Prev</button>`
+          : ""
+      }
+      ${
+        data.next
+          ? `<button class="btn" onclick="getMoreSongs('${data.next}')">Next</button>`
+          : ""
+      }
     `;
   } else {
     more.innerHTML = "";
