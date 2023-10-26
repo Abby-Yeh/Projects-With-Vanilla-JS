@@ -3,6 +3,7 @@
 }
 body{
     background: lightslategray url('./image/waves.jpg') no-repeat center center/cover;
+    color: #fff;
     min-height: 100vh;
     overflow: hidden;
     display: flex;
@@ -11,6 +12,7 @@ body{
     align-items: center;
     margin: 0;
 }
+
 .container{
     /* border-style: solid; */
     border-color: #fefdfd52;
@@ -60,8 +62,8 @@ body{
         #2f5972 40%,
         #fcfdfd 40%,
         #f3f4f4 60%,
-        #3e84a0 60%,
-        #123a49 100%);
+        #77bfe652 0%,
+        #2f5972 40%);
     height: 320px;
     width: 320px;
     z-index: -2;
@@ -77,5 +79,31 @@ body{
     }
     to {
         transform: rotate(360deg)
+    }
+}
+
+.container.grow {
+    animation: grow 4s linear forwards;
+}
+@keyframes grow {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.2);
+    }
+}
+
+.container.shrink {
+    animation: shrink 4s linear forwards;
+}
+
+@keyframes shrink {
+    from {
+        transform: scale(1.2);
+    }
+
+    to {
+        transform: scale(1);
     }
 }
